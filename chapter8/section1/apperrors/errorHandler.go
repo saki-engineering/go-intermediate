@@ -3,7 +3,6 @@ package apperrors
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 )
 
@@ -28,8 +27,6 @@ func ErrorHandler(w http.ResponseWriter, req *http.Request, err error) {
 	default:
 		statusCode = http.StatusInternalServerError
 	}
-
-	fmt.Println(appErr)
 
 	w.WriteHeader(statusCode)
 	json.NewEncoder(w).Encode(appErr)
