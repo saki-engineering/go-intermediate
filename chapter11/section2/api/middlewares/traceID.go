@@ -9,7 +9,7 @@ var (
 	mu    sync.Mutex
 )
 
-func setTraceID() int {
+func newTraceID() int {
 	var no int
 
 	mu.Lock()

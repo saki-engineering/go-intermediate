@@ -21,7 +21,7 @@ func (rsw *resLoggingWriter) WriteHeader(code int) {
 
 func LoggingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
-		traceID := setTraceID()
+		traceID := newTraceID()
 
 		// リクエスト情報をロギング
 		log.Printf("[%d]%s %s\n", traceID, req.RequestURI, req.Method)
