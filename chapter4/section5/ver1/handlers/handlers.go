@@ -55,7 +55,11 @@ func ArticleListHandler(w http.ResponseWriter, req *http.Request) {
 
 // GET /article/{id} のハンドラ
 func ArticleDetailHandler(w http.ResponseWriter, req *http.Request) {
-	articleID := mux.Vars(req)["id"]
+	articleID, err := strconv.Atoi(mux.Vars(req)["id"])
+	if err != nil {
+		http.Error(w, "Invalid query parameter", http.StatusBadRequest)
+		return
+	}
 
 	// 暫定でこれを追加することで
 	// 「変数articleIDが使われていない」というコンパイルエラーを回避

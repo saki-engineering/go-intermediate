@@ -58,12 +58,16 @@ func ArticleListHandler(w http.ResponseWriter, req *http.Request) {
 
 // GET /article/{id} のハンドラ
 func ArticleDetailHandler(w http.ResponseWriter, req *http.Request) {
-	articleID := mux.Vars(req)["id"]
+	articleID, err := strconv.Atoi(mux.Vars(req)["id"])
+	if err != nil {
+		http.Error(w, "Invalid query parameter", http.StatusBadRequest)
+		return
+	}
 
 	article := models.Article1
 	jsonData, err := json.Marshal(article)
 	if err != nil {
-		errMsg := fmt.Sprintf("fail to encode json (articleID %s)\n", articleID)
+		errMsg := fmt.Sprintf("fail to encode json (articleID %d)\n", articleID)
 		http.Error(w, errMsg, http.StatusInternalServerError)
 		return
 	}
