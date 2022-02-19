@@ -12,7 +12,7 @@ const (
 	UpdateDataFailed ErrCode = "S005"
 
 	ReqBodyDecodeFailed ErrCode = "R001"
-	BadPathParam        ErrCode = "R002"
+	BadParam        ErrCode = "R002"
 
 	RequiredAuthorizationHeader ErrCode = "A001"
 	CannotMakeValidator         ErrCode = "A002"

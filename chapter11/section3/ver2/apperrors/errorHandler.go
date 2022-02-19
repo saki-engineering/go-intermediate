@@ -26,7 +26,7 @@ func ErrorHandler(w http.ResponseWriter, req *http.Request, err error) {
 	var statusCode int
 
 	switch appErr.ErrCode {
-	case NAData, BadPathParam:
+	case NAData, BadParam:
 		statusCode = http.StatusNotFound
 	case NoTargetData, ReqBodyDecodeFailed:
 		statusCode = http.StatusBadRequest
