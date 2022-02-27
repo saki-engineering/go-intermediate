@@ -33,6 +33,7 @@ func TestMain(m *testing.M) {
 func BenchmarkGetArticleService(b *testing.B) {
 	articleID := 1
 
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		_, err := aSer.GetArticleService(articleID)
 		if err != nil {
