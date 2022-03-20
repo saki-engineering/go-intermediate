@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	googleClientId = "[yourClientID]"
+	googleClientID = "[yourClientID]"
 )
 
 func AuthMiddleware(next http.Handler) http.Handler {
@@ -43,7 +43,7 @@ func AuthMiddleware(next http.Handler) http.Handler {
 			return
 		}
 
-		payload, err := tokenValidator.Validate(context.Background(), idToken, googleClientId)
+		payload, err := tokenValidator.Validate(context.Background(), idToken, googleClientID)
 		if err != nil {
 			err = apperrors.Unauthorizated.Wrap(err, "invalid id token")
 			apperrors.ErrorHandler(w, req, err)

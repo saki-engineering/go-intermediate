@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	googleClientId := "[myClientID]"
-	id_token := `[myIDToken]`
+	googleClientID := "[myClientID]"
+	idToken := `[myIDToken]`
 
 	tokenValidator, err := idtoken.NewValidator(context.Background())
 	if err != nil {
@@ -17,7 +17,7 @@ func main() {
 		return
 	}
 
-	payload, err := tokenValidator.Validate(context.Background(), id_token, googleClientId)
+	payload, err := tokenValidator.Validate(context.Background(), idToken, googleClientID)
 	if err != nil {
 		fmt.Println("validate err: ", err)
 		return

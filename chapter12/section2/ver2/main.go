@@ -11,9 +11,9 @@ import (
 )
 
 func main() {
-	id_token := `[yourIDToken]`
+	idToken := `[yourIDToken]`
 
-	dataArray := strings.Split(id_token, ".")
+	dataArray := strings.Split(idToken, ".")
 	header, payload, sig := dataArray[0], dataArray[1], dataArray[2]
 
 	// headerをbase64 decodeする
