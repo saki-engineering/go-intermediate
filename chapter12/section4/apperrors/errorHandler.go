@@ -28,10 +28,12 @@ func ErrorHandler(w http.ResponseWriter, req *http.Request, err error) {
 	switch appErr.ErrCode {
 	case NAData:
 		statusCode = http.StatusNotFound
-	case NoTargetData, ReqBodyDecodeFailed, BadParam, NotMatchUser:
+	case NoTargetData, ReqBodyDecodeFailed, BadParam:
 		statusCode = http.StatusBadRequest
 	case RequiredAuthorizationHeader, Unauthorizated:
 		statusCode = http.StatusUnauthorized
+	case NotMatchUser:
+		statusCode = http.StatusForbidden
 	default:
 		statusCode = http.StatusInternalServerError
 	}
