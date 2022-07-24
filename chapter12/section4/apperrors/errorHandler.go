@@ -26,9 +26,9 @@ func ErrorHandler(w http.ResponseWriter, req *http.Request, err error) {
 	var statusCode int
 
 	switch appErr.ErrCode {
-	case NAData, BadParam:
+	case NAData:
 		statusCode = http.StatusNotFound
-	case NoTargetData, ReqBodyDecodeFailed, NotMatchUser:
+	case NoTargetData, ReqBodyDecodeFailed, BadParam, NotMatchUser:
 		statusCode = http.StatusBadRequest
 	case RequiredAuthorizationHeader, Unauthorizated:
 		statusCode = http.StatusUnauthorized

@@ -14,7 +14,7 @@ func TestArticleListHandler(t *testing.T) {
 		resultCode int
 	}{
 		{name: "number query", query: "1", resultCode: http.StatusOK},
-		{name: "alphabet query", query: "aaa", resultCode: http.StatusNotFound},
+		{name: "alphabet query", query: "aaa", resultCode: http.StatusBadRequest},
 	}
 
 	for _, tt := range tests {

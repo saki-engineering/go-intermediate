@@ -16,7 +16,7 @@ func TestArticleListHandler(t *testing.T) {
 		resultCode int
 	}{
 		{name: "number query", query: "1", resultCode: http.StatusOK},
-		{name: "alphabet query", query: "aaa", resultCode: http.StatusNotFound},
+		{name: "alphabet query", query: "aaa", resultCode: http.StatusBadRequest},
 	}
 
 	for _, tt := range tests {
@@ -41,8 +41,8 @@ func TestArticleDetailHandler(t *testing.T) {
 		articleID  string
 		resultCode int
 	}{
-		{name: "number query", articleID: "1", resultCode: http.StatusOK},
-		{name: "alphabet query", articleID: "aaa", resultCode: http.StatusNotFound},
+		{name: "number pathparam", articleID: "1", resultCode: http.StatusOK},
+		{name: "alphabet pathparam", articleID: "aaa", resultCode: http.StatusNotFound},
 	}
 
 	for _, tt := range tests {
