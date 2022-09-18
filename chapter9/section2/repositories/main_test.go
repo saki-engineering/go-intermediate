@@ -60,7 +60,7 @@ func setup() error {
 	return nil
 }
 
-// 前テスト共通の後処理を書く
+// 全テスト共通の後処理を書く
 func teardown() {
 	cleanupDB()
 	testDB.Close()
